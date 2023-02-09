@@ -60,11 +60,9 @@ func ExampleJoin_both_empty() {
 	result2 := Join(l2, l1)
 
 	fmt.Println(result1)
-	fmt.Println()
 	fmt.Println(result2)
 
 	// Output:
 	// []
-	//
 	// []
 }
