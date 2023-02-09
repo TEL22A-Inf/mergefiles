@@ -1,19 +1,21 @@
 package main
 
 import (
+	"flag"
 	"log"
-	"os"
 
 	"github.com/reinerhuechting/mergefiles/files"
 	"github.com/reinerhuechting/mergefiles/stringlists"
 )
 
 func main() {
-	if len(os.Args) <= 2 {
-		log.Fatal("Not enough arguments.")
+
+	outfilename := flag.String("out", "out.txt", "The name of the output file to write.")
+	flag.Parse()
+	infilenames := flag.Args()
+	if len(infilenames) < 1 {
+		log.Fatal("Not enough arguments. At least one input file name must be given.")
 	}
-	outfilename := os.Args[1]
-	infilenames := os.Args[2:]
 
 	filecontents := [][]string{}
 	for _, filename := range infilenames {
@@ -22,5 +24,5 @@ func main() {
 	}
 
 	result := stringlists.RemoveDuplicates(stringlists.Join(filecontents...))
-	files.WriteLines(result, outfilename)
+	files.WriteLines(result, *outfilename)
 }
