@@ -3,11 +3,16 @@ package stringlists
 // Join expects two lists of strings and joins them.
 // Returns the resulting list.
 // It always returns a new list.
-func Join(list1, list2 []string) []string {
+func Join(lists ...[]string) []string {
 	result := []string{}
 
-	result = append(result, list1...)
-	result = append(result, list2...)
+	if len(lists) == 0 {
+		return result
+	}
 
-	return result
+	if len(lists) >= 1 {
+		result = append(result, lists[0]...)
+	}
+
+	return append(result, Join(lists[1:]...)...)
 }
