@@ -6,12 +6,6 @@ package stringlists
 // Returns the result
 func RemoveDuplicates(list []string) []string {
 	result := []string{}
-
-	if len(list) >= 1 {
-		head, tail := list[0], list[1:]
-		result = append(result, head)
-		result = append(result, RemoveDuplicates(RemoveString(tail, head))...)
-	}
-
+	// TODO
 	return result
 }
