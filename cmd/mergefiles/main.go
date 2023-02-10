@@ -4,8 +4,8 @@ import (
 	"flag"
 	"log"
 
-	"github.com/reinerhuechting/mergefiles/files"
-	"github.com/reinerhuechting/mergefiles/stringlists"
+	"github.com/tel22a-inf/mergefiles/files"
+	"github.com/tel22a-inf/mergefiles/stringlists"
 )
 
 func main() {
